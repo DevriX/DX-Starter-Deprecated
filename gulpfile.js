@@ -8,6 +8,7 @@ var gulp = require('gulp'),
 	cssmin = require('gulp-cssmin'),
     rename = require('gulp-rename'),
 	imagemin = require('gulp-imagemin'),
+	phantomcss = require('gulp-phantomcss'),
 	del = require('del'),
 	moment = require('moment');
 

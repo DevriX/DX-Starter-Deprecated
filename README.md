@@ -30,6 +30,12 @@ Run `$ npm install`. This will create `node_modules` folder. Don't worry, it is 
 
 If you have `sass` command installed, you can run `sass --watch assets/sass/master.scss:assets/css/master.min.css --style compressed` to compile only the sass file. For JavaScript you will have to use gulp.
 
+## Testing
+
+With the DX Starter theme you also get front-end regression test tool. The configuration and tests are located in `tests/views/test.js`. To run the tests simply type `npm test` and the cleanup the test files type `npm run test-cleanup`.
+
+Read more on how it works [in PhantomCSS's github page](https://github.com/Huddle/PhantomCSS)
+
 ## Note:
 
 The theme is not 100% ready as there are still small changes to be made in the future. Some of the todos are renaming some of the scss files, better js compile/minification and imgming scripts. That is what's on the radar for now, most likley there will be more to be added/changed. If you have any ideas feel free to open an issue !
