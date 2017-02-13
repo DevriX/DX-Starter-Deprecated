@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Add custom image sizes attribute to enhance responsive image functionality
  * for post thumbnails
