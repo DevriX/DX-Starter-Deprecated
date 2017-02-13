@@ -1,6 +1,6 @@
 <?php
 /**
- * DevriX Starter functions and definitions.
+ * DevriX Starter functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -34,7 +34,7 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
- * Better support for responsive images out of the box
+ * Better support for responsive images out of the box.
  */
 require get_template_directory() . '/inc/images.php';
 
@@ -75,7 +75,7 @@ function dxstarter_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	/**
-	 * Sample post thumbnail sizes. Change these to fit your theme
+	 * Sample post thumbnail sizes. Change these to fit your theme.
 	 *
 	 * @since  DX Starter 1.1.0
 	 */
@@ -164,10 +164,10 @@ function dxstarter_scripts() {
 		}
 	}
 
-	// Enqueue the only styling file here that is build with Gulp
+	// Enqueue the only styling file here that is build with Gulp.
 	wp_enqueue_style( 'stylesheet', get_template_directory_uri() . '/assets/css/master' . $suffix . '.css' );
 	
-	// And the only JS file that is build with Gulp
+	// And the only JS file that is build with Gulp.
 	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/scripts/bundle' . $suffix . '.js', array( "jquery" ), '20170204', true );
 
 
@@ -178,7 +178,7 @@ function dxstarter_scripts() {
 add_action( 'wp_enqueue_scripts', 'dxstarter_scripts' );
 
 /**
- * Remove the margin-top styling added to the HTML tag by default from WordPress
+ * Remove the margin-top styling added to the HTML tag by default from WordPress.
  */
 function dxstarter_remove_html_margin() {
 	remove_action( 'wp_head', '_admin_bar_bump_cb' );
