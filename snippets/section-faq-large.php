@@ -1,6 +1,6 @@
 <?php
 /**
- * Our basic FAQ layout.
+ * Our basic FAQ layout
  *
  * @since  DX Starter v1.3.0
  * @uses  assets/sass/prebuilds/elements/_section-faq-elements.scss
@@ -14,9 +14,9 @@
 				<header class="section-heading">
 					<h2 class="heading-title">This is the section's heading</h2><!-- .heading-title -->
 					<p class="heading-subtext">Under which you can even add parahraph with more text</p><!-- .heading-subtext -->
-				</header><!-- .flex-grid-wrapper -->
-			</div>
-		</div><!-- /end row -->
+				</header><!-- .section-heading -->
+			</div><!-- .columns -->
+		</div><!-- .row -->
 
 		<div class="row">
 			<!-- Note: For the faq elements there is .number element.
