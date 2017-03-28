@@ -1,6 +1,6 @@
 <?php
 /**
- * DevriX Starter Theme Customizer.
+ * DevriX Starter Theme Customizer
  *
  * @package DevriX_Starter
  */

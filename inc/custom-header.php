@@ -1,6 +1,6 @@
 <?php
 /**
- * Sample implementation of the Custom Header feature.
+ * Sample implementation of the Custom Header feature
  *
  * You can add an optional custom header image to header.php like so ...
  *
@@ -14,9 +14,8 @@
  *
  * @package DX Starter
  */
-
 /**
- * Sample implementation of the Custom Header feature.
+ * Sample implementation of the Custom Header feature
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *

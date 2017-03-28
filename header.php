@@ -1,6 +1,6 @@
 <?php
 /**
- * The header for our theme.
+ * The header for our theme
  *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
@@ -53,8 +53,8 @@
 						</div><!-- .menu-primary-container -->
 					</nav><!-- #site-navigation -->
 				</div><!-- .site-header-inner -->
-			</div><!-- /columns -->
-		</div><!-- /row -->
-	</header><!-- #site-header -->
+			</div><!-- .columns -->
+		</div><!-- .row -->
+	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
