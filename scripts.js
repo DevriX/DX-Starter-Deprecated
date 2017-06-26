@@ -1,1 +1,1 @@
-jQuery(document).ready(function(n){"use strict";var o=function(){return!0};o()||(console.log=function(){})});
+jQuery(document).ready(function(e){"use strict";var n=function(){return!0};n()||(console.log=function(){}),e(".site-header .mobile-menu-button").on("click",function(n){n.preventDefault(),e(".mobile-menu").toggleClass("is-visible")})});

@@ -4814,6 +4814,16 @@ hr {
   .select::-ms-expand {
     display: none; }
 
+input,
+input[type="checkbox"],
+input[type="radio"],
+input[type="number"],
+input[type="number"],
+input[type="search"],
+input[type="search"],
+input[type="search"] {
+  box-sizing: border-box; }
+
 /**
  * DX MOBILE MENU
  * ============================================================================
@@ -5006,9 +5016,22 @@ hr {
  * Clean basic header styling with logo on the left and menu on the right
  * with white background and subtle shadow.
  */
+@media screen and (max-width: 600px) {
+  #wpadminbar {
+    position: fixed !important; } }
+
 .site-header {
-  padding: 30px 0;
-  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.1); }
+  padding: 10px 0;
+  background-color: #4072db;
+  color: white;
+  font-size: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 90; }
+  .site-header a, .site-header a:hover {
+    color: white; }
   .site-header-inner {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5019,6 +5042,9 @@ hr {
         -ms-flex-align: center;
             align-items: center; }
 
+.site-header-placeholder {
+  height: 60px; }
+
 .site-description {
   display: none; }
 
@@ -5026,26 +5052,50 @@ hr {
 .site-branding {
   margin: 0; }
 
+.site-branding {
+  margin-right: 24px;
+  color: white; }
+  @media (max-width: 640px) {
+    .site-branding {
+      margin-right: 10px; } }
+  .site-branding a {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: -8 / 2px;
+    display: inherit; }
+
 .main-navigation {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
-          flex: 1 1 auto; }
+          flex: 1 1 auto;
+  margin-right: 24px; }
+  @media (max-width: 640px) {
+    .main-navigation {
+      display: none; } }
   .main-navigation .menu-item a {
-    padding: 0.75rem 0.625rem;
-    color: #1a1a1a;
-    background-color: #fff;
-    border-radius: 0.1875rem; }
-  .main-navigation .menu-item a:hover {
-    color: #1a1a1a;
-    background-color: #f0f0f0; }
+    padding: 1rem 0.5rem;
+    color: #fff;
+    background-color: transparent;
+    border-radius: 0;
+    font-weight: normal;
+    cursor: pointer; }
+  .main-navigation .sub-menu .menu-item a {
+    color: black;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 500; }
+  .main-navigation .sub-menu .menu-item a:hover {
+    color: #4072db;
+    font-weight: 500; }
+  .main-navigation .sub-menu .menu-item a:last-of-type {
+    border: none; }
 
 @media (min-width: 640px) {
   .menu-item:nth-last-child(-n+3) .sub-menu .sub-menu {
     right: calc(100%);
-    top: 0; }
+    top: -0.75rem; }
   .sub-menu {
     box-shadow: 0 7px 13px -9px rgba(0, 0, 0, 0.1);
-    padding: 0 0;
+    padding: 1.5rem 0;
     font-size: 14px;
     min-width: 250px; }
     .sub-menu .menu-item {
@@ -5055,10 +5105,153 @@ hr {
       .sub-menu .menu-item:last-of-type {
         margin-bottom: 0; }
       .sub-menu .menu-item a {
-        padding: 0.9375rem 1.25rem;
+        padding: 0.3125rem 1.5rem;
         display: block; }
       .sub-menu .menu-item a:hover {
-        background: #fafafa; } }
+        background: none; } }
+
+.site-button-navigation {
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .site-button-navigation .mobile-menu-button {
+    border: none;
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    font-weight: 700;
+    color: white;
+    margin-left: 4px;
+    background-color: #2b62d7;
+    cursor: pointer; }
+    .site-button-navigation .mobile-menu-button:hover {
+      color: white;
+      opacity: 0.8; }
+    @media (max-width: 640px) {
+      .site-button-navigation .mobile-menu-button {
+        display: none; } }
+  .site-button-navigation .mobile-menu-button {
+    cursor: pointer;
+    background: none;
+    display: none;
+    padding: 0;
+    font-size: 24px;
+    padding: 0 0.5rem; }
+    .site-button-navigation .mobile-menu-button:hover {
+      background-color: #2b62d7; }
+  @media (max-width: 640px) {
+    .site-button-navigation .mobile {
+      display: block; } }
+
+.mobile-menu {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: #1a1a1a;
+  color: white;
+  position: fixed;
+  top: 60px; }
+  .mobile-menu.is-visible {
+    display: block;
+    z-index: 100; }
+  .admin-bar .mobile-menu {
+    top: 92px; }
+    @media screen and (max-width: 782px) {
+      .admin-bar .mobile-menu {
+        top: 106px; } }
+
+.mobile-menu-top-nav {
+  text-align: center;
+  background: #2b62d7; }
+  .mobile-menu-top-nav li {
+    display: inline-block; }
+  .mobile-menu-top-nav a {
+    display: inline-block;
+    font-size: 14px;
+    padding: 0.5rem 0.5rem;
+    font-weight: 700;
+    color: white; }
+  .mobile-menu-top-nav .children {
+    display: none; }
+
+.mobile-menu-search {
+  padding: 1rem;
+  border-bottom: 1px solid #343434;
+  width: 100%; }
+  .mobile-menu-search .search-field {
+    border: none;
+    width: 100%;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 3px; }
+  .mobile-menu-search .search-submit {
+    display: none; }
+  .mobile-menu-search label {
+    position: relative; }
+  .mobile-menu-search label:after {
+    content: '\f002';
+    display: inline-block;
+    font-family: FontAwesome;
+    position: absolute;
+    right: 16px;
+    top: -0.125rem;
+    color: black; }
+
+.mobile-menu-categories {
+  list-style: none;
+  max-height: calc(100vh - 228px);
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
+  .admin-bar .mobile-menu-categories {
+    max-height: calc(100vh - 274px); }
+  .mobile-menu-categories li a {
+    color: white;
+    display: block;
+    padding: 0.5rem 1rem; }
+
+.mobile-menu-social {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 60px;
+  bottom: 60px;
+  background: white;
+  padding: 0.5rem 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .admin-bar .mobile-menu-social {
+    bottom: 106px; }
+  .mobile-menu-social .button {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    margin: 0 0.25rem;
+    line-height: 1.7;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    display: inline-block;
+    padding: 0.5rem 1rem; }
+  .mobile-menu-social .fa {
+    display: inline-block;
+    margin-right: 4px; }
+  .mobile-menu-social .facebook {
+    background-color: #3b5998; }
+  .mobile-menu-social .twitter {
+    background-color: #1da1f2; }
+  .mobile-menu-social .google-plus {
+    background-color: #dd4b39; }
+  .mobile-menu-social .rss {
+    background-color: #f26522; }
+  @media (max-width: 640px) {
+    .mobile-menu-social .google-plus,
+    .mobile-menu-social .rss {
+      display: none; } }
 
 /**
  * Various flex grid stylings that can be used across the theme.

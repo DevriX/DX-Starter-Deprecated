@@ -1,3 +1,7 @@
+// Use this as a base so that all spacings are calculated by mutiplying or dividing
+// to the multiplier. It creates a much more coherent look of the site.
+$multiplier: 8;
+
 // Global settings
 $global-layout-gutter: 20px;
 $global-font-size: 16px;

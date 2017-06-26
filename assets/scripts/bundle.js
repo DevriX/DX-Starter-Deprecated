@@ -142,4 +142,28 @@ jQuery( document ).ready( function ( $ ) {
 		console.log = function() {};
 	}
 
+	// Show the advanced mobile menu
+	$('.site-header .mobile-menu-button').on('click', function(e) {
+		e.preventDefault();
+		$('.mobile-menu').toggleClass('is-visible');
+	});
+
+	// Add visible element to the list.
+	function registerIsVisibleToggle( $element ) {
+	    siteOverlayVisibleStack.push($element);
+	}
+
+	// Show/hide the site overlay
+	function toggleSiteOverlay( element, action ) {
+		if ( 'show' === action ) {
+			$(element).addClass('is-visible');
+		}
+		if ( 'hide' === action ) {
+			$(element).removeClass('is-visible');
+		}
+		if ( 'toggle' === action ) {
+			$(element).toggleClass('is-visible');
+		}
+	}
+
 });

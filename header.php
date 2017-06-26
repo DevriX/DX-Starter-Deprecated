@@ -52,9 +52,44 @@
 							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 						</div><!-- .menu-primary-container -->
 					</nav><!-- #site-navigation -->
+
+					<nav class="site-button-navigation">
+						<span class="mobile mobile-menu-button"><i class="fa fa-bars"></i></span>
+					</nav><!-- .site-button-navigation -->
 				</div><!-- .site-header-inner -->
 			</div><!-- /columns -->
 		</div><!-- /row -->
 	</header><!-- #site-header -->
+
+	<?php
+		// This is the advanced mobile menu.
+		// ==================================================================
+		// Since there will be over 60% of mobile users we can serve a bit
+		// different content if needed, so we are moving it as a separate
+		// component. ?>
+
+	<nav class="mobile-menu">
+
+		<div class="mobile-menu-top-nav">
+			<?php wp_nav_menu( array( 'theme_location' => 'mobile-top-nav', 'menu_id' => 'mobile-top-nav', 'depth' => 1 ) ); ?>
+		</div><!-- .mobile-menu-top-nav -->
+
+		<div class="mobile-menu-search">
+			<?php get_search_form(); ?>
+		</div><!-- .mobile-menu-top-nav -->
+
+		<div class="mobile-menu-categories">
+			<?php wp_list_categories(array(
+			   'title_li' => ''
+			)); ?>
+		</div><!-- .mobile-menu-categories -->
+
+		<div class="mobile-menu-social">
+			<a href="#facebook" class="button facebook"><i class="fa fa-facebook"></i>Facebook</a>
+			<a href="#twitter" class="button twitter"><i class="fa fa-twitter"></i>Twitter</a>
+			<a href="#googleplus" class="button google-plus"><i class="fa fa-google-plus"></i>Google Plus</a>
+			<a href="#rss" class="button rss"><i class="fa fa-rss"></i>RSS feed</a>
+		</div><!-- .mobile-menu-social -->
+	</nav><!-- .mobile-menu -->
 
 	<div id="content" class="site-content">

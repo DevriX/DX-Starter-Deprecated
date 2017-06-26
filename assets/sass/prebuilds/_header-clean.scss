@@ -3,20 +3,36 @@
  * with white background and subtle shadow.
  */
 
-$menu-link-padding: rem-calc(12px 10px);
-$menu-link-color: #1a1a1a;
-$menu-link-background: #fff;
-$menu-link-color-hover: #1a1a1a;
-$menu-link-background-hover: #f0f0f0;
-$menu-link-border-radius: rem-calc(3px);
-$submenu-padding: 0;
-$submenu-menu-padding: rem-calc(15px) rem-calc(20px);
+$menu-link-padding: rem-calc(2px * $multiplier 1px * $multiplier);
+$menu-link-color: #fff;
+$menu-link-background: transparent;
+$menu-link-color-hover: transparent;
+$menu-link-background-hover: transparent;
+$menu-link-border-radius: rem-calc(0);
+$submenu-padding: rem-calc(3px *$multiplier);
+$submenu-menu-padding: rem-calc(5px) $submenu-padding;
 $submenu-width: 250px;
 $submenu-font-size: 14px;
 
+@media screen and (max-width: 600px) {
+    #wpadminbar {
+        position: fixed !important;
+    }
+}
+
+
 .site-header {
-	padding: 30px 0;
-	box-shadow: 0 5px 10px -5px rgba(black, 0.1);
+	padding: 10px 0;
+	// box-shadow: 0 5px 10px -5px rgba(black, 0.1);
+	background-color: $color-primary;
+	color: white;
+	font-size: 16px;
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%;
+	z-index: 90;
+
+	a, a:hover { color: white; }
 
 	// This will be the flexbox wrapper
 	&-inner {
@@ -24,6 +40,10 @@ $submenu-font-size: 14px;
 		flex-wrap: wrap;
 		align-items: center;
 	}
+}
+
+.site-header-placeholder {
+	height: 60px;
 }
 
 .site-description {
@@ -35,8 +55,30 @@ $submenu-font-size: 14px;
 	margin: 0;
 }
 
+.site-branding {
+	margin-right: 3px * $multiplier;
+	color: white;
+
+	@media (max-width: $breakpoint-small) {
+		margin-right: 10px;
+	}
+
+	a {
+		font-weight: bold;
+		font-size: 3px * $multiplier;
+		margin-top: -(#{$multiplier} / 2px);
+		display: inherit;
+	}
+}
+
 .main-navigation {
 	flex: 1 1 auto;
+	margin-right: 3px * $multiplier;
+	
+	// We are hiding it for tablet devices
+	@media (max-width: $breakpoint-small) {
+		display: none;
+	}
 
 	.menu-item {
 		a {
@@ -44,11 +86,25 @@ $submenu-font-size: 14px;
 			color: $menu-link-color;
 			background-color: $menu-link-background;
 			border-radius: $menu-link-border-radius;
+			font-weight: normal;
+			cursor: pointer;
+		}
+	}
+
+	.sub-menu {
+		.menu-item a {
+			color: black;
+			border-bottom: 1px solid #f0f0f0;
+			font-weight: 500;
 		}
 
-		a:hover {
-			color: $menu-link-color-hover;
-			background-color: $menu-link-background-hover;
+		.menu-item a:hover {
+			color: $color-primary;
+			font-weight: 500;
+		}
+
+		.menu-item a:last-of-type {
+			border: none;
 		}
 	}
 }
@@ -56,7 +112,7 @@ $submenu-font-size: 14px;
 
 // Dropdown menu settings.
 // You can have these in a separate file or tweak the standard menu settings.
-// 
+//
 // $menu-breakpoint - comes from the components/_mobile-menu.scss base stylings
 // ----------------------------------------------------------------------------
 @media (min-width: $menu-breakpoint) {
@@ -70,7 +126,7 @@ $submenu-font-size: 14px;
 		padding: $submenu-padding 0;
 		font-size: $submenu-font-size;
 		min-width: $submenu-width;
-		
+
 		.menu-item {
 			margin: 0;
 			padding: 0;
@@ -86,9 +142,189 @@ $submenu-font-size: 14px;
 			}
 
 			a:hover {
-				background: #fafafa;
+				background: none;
 			}
 		}
 	}
+}
 
+.site-button-navigation {
+	margin-left: auto;
+	display: flex;
+
+	.mobile-menu-button {
+		border: none;
+		font-size: 14px;
+		padding: rem-calc(1px * $multiplier 2px* $multiplier);
+		border-radius: 3px;
+		font-weight: 700;
+		color: white;
+		margin-left: 4px;
+		background-color: darken($color-primary, 5%);
+		cursor: pointer;
+
+		&:hover {
+			color: white;
+			opacity: 0.8;
+		}
+
+		@media (max-width: $breakpoint-small) { display: none; }
+	}
+
+	.mobile-menu-button {
+		cursor: pointer;
+		background: none;
+		display: none;
+		padding: 0;
+		font-size: 24px;
+		padding: rem-calc(0 * $multiplier 1px* $multiplier);
+
+		&:hover {
+			background-color: darken($color-primary, 5%);
+		}
+	}
+
+	// These are items that will be shown on mobile.
+	// ( with some exceptions :3 )
+	.mobile {
+		@media (max-width: $breakpoint-small) { display: block; }
+	}
+}
+
+// Dropdown mobile menu
+// Build as a separate component in the header.php file.
+.mobile-menu {
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	background: #1a1a1a;
+	color: white;
+	position: fixed;
+	top: 60px;
+
+	&.is-visible {
+		display: block;
+		// The overlay has z-index: 95
+		z-index: 100;
+	}
+
+	// Positioning
+	.admin-bar & {
+		top: 92px;
+		@media screen and (max-width: 782px) { top: 106px; }
+	}
+}
+
+.mobile-menu-top-nav {
+	text-align: center;
+    background: darken($color-primary, 5%);
+
+	li {
+		display: inline-block;
+	}
+
+	a {
+		display: inline-block;
+		font-size: 14px;
+		padding: rem-calc(1px * $multiplier 1px * $multiplier);
+		font-weight: 700;
+		color: white;
+	}
+
+	// Do not show submenu items in here.
+	.children {
+		display: none;
+	}
+}
+
+
+.mobile-menu-search {
+	padding: rem-calc(2px * $multiplier);
+	border-bottom: 1px solid #343434;
+	width: 100%;
+
+	.search-field {
+		border: none;
+		width: 100%;
+		border: none;
+		padding: rem-calc(1px * $multiplier 2px * $multiplier);
+		border-radius: 3px;
+	}
+
+	.search-submit {
+		display: none;
+	}
+
+	label {
+		position: relative;
+	}
+
+	label:after {
+		content: '\f002';
+		display: inline-block;
+		font-family: FontAwesome;
+		position: absolute;
+		right: 2px * $multiplier;
+		top: rem-calc(-2px);
+		color: black;
+	}
+}
+
+.mobile-menu-categories {
+	list-style: none;
+    max-height: calc(100vh - 228px); // Magic numbers o.O
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    .admin-bar & {
+    	max-height: calc(100vh - 274px); // Magic numbers o.O
+    }
+
+	li a {
+		color: white;
+		display: block;
+		padding: rem-calc(1px * $multiplier 2px * $multiplier);
+	}
+}
+
+.mobile-menu-social {
+	position: absolute;
+	left: 0;
+	width: 100vw;
+	height: 60px;
+	bottom: 60px;
+	background: white;
+	padding: rem-calc(1px * $multiplier 1px * $multiplier);
+	display: flex;
+	justify-content: space-between;
+
+	.admin-bar & {
+		bottom: 106px;
+	}
+
+	.button {
+		flex: 1 1 100%;
+		margin: rem-calc(0 $multiplier / 2px);
+		line-height: 1.7;
+		color: white;
+		font-weight: 700;
+		text-align: center;
+		display: inline-block;
+		padding: rem-calc(1px * $multiplier 2px * $multiplier);
+	}
+
+	.fa {
+		display: inline-block;
+		margin-right: 4px;
+	}
+
+	.facebook { background-color: #3b5998; }
+	.twitter { background-color: #1da1f2; }
+	.google-plus { background-color: #dd4b39; }
+	.rss { background-color: #f26522; }
+
+	.google-plus,
+	.rss {
+		@media (max-width: 640px) { display: none; }
+	}
 }
