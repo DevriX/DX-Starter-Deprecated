@@ -1,1 +1,1 @@
-jQuery(document).ready(function(e){"use strict"});
+jQuery(document).ready(function(n){"use strict";var o=function(){return!0};o()||(console.log=function(){})});
