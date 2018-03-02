@@ -4893,7 +4893,7 @@ hr {
       display: none;
       border-top: 1px solid #ccc;
       background: #f0f0f0; }
-    .main-navigation .menu-item.is-extended .sub-menu {
+    .main-navigation .menu-item.is-extended > .sub-menu {
       display: block; } }
 
 .menu-primary-container {
@@ -5013,7 +5013,7 @@ hr {
          -moz-user-select: none;
           -ms-user-select: none;
               user-select: none; }
-  .menu-item-has-children.is-extended .dropdown-arrow {
+  .menu-item-has-children.is-extended > .dropdown-arrow {
     -webkit-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
             transform: rotate(90deg); }

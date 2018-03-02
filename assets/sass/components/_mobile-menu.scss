@@ -117,7 +117,7 @@ body.is-menu-opened {
 			background: $submenu-background;
 		}
 
-		.menu-item.is-extended .sub-menu {
+		.menu-item.is-extended > .sub-menu {
 			display: block;
 		}
 	}
@@ -279,7 +279,7 @@ body.is-menu-opened {
 		}
 	}
 
-	&.is-extended .dropdown-arrow {
+	&.is-extended > .dropdown-arrow {
 		transform: rotate(90deg);
 	}
 
