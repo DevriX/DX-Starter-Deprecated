@@ -17,6 +17,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
+    "gulp-filter": "^5.1.0",
     "gulp-imagemin": "^5.0.3",
     "gulp-livereload": "^4.0.1",
     "gulp-newer": "^1.4.0",
@@ -29,16 +30,17 @@
     "gulp-uglify": "^3.0.2",
     "moment": "^2.24.0",
     "replace-in-file": "^4.1.0",
+    "replace-in-files": "^1.1.4",
     "sass-lint": "^1.13.1",
-    "gulp-filter": "^5.1.0"
+    "v": "^0.3.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "./node_modules/.bin/gulp",
-    "ziptheme": "bash zip.sh",
-    "ver": "node assets-version.js",
-    "hello": "echo \"Hello\" ",
-    "projectConf": "sudo npm i -g gulp-cli gulp && echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
+    "ziptheme": "bash tools/zip.sh",
+    "ver": "node tools/assets-version.js",
+    "projectConf": "sudo npm i -g gulp-cli gulp && echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p",
+    "rename": "node tools/initial-setup.js"
   },
   "author": "DevriX",
   "license": "ISC",
