@@ -1,5 +1,5 @@
 {
-  "name": "dxstarter",
+  "name": "mariyan",
   "version": "1.5.0",
   "description": "Quick settings for developing themes.",
   "main": "Gulpfile.js",
@@ -30,6 +30,7 @@
     "gulp-uglify": "^3.0.2",
     "moment": "^2.24.0",
     "replace-in-file": "^4.1.0",
+    "replace-in-files": "^1.1.4",
     "sass-lint": "^1.13.1",
     "v": "^0.3.0"
   },
@@ -38,7 +39,8 @@
     "gulp": "./node_modules/.bin/gulp",
     "ziptheme": "bash tools/zip.sh",
     "ver": "node tools/assets-version.js",
-    "projectConf": "sudo npm i -g gulp-cli gulp && echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
+    "projectConf": "sudo npm i -g gulp-cli gulp && echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p",
+    "rename": "node tools/initial-setup.js"
   },
   "author": "DevriX",
   "license": "ISC",
