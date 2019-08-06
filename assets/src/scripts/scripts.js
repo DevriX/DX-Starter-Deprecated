@@ -18,4 +18,6 @@ jQuery( document ).ready( function ( $ ) {
 	if ( ! devMode() ) {
 		console.log = function() {};
 	}
+
+	$('body').addClass('page-loaded');
 });
