@@ -84,6 +84,8 @@ gulp.task("watch", function() {
 	gulp.watch(paths.source.sass + "**/*.scss", gulp.series("sass"));
 	gulp.watch(paths.source.scripts + "**/*.js", gulp.series("minifyScripts"));
 	gulp.watch(paths.source.images + "*", gulp.series("optimizeImages"));
+	gulp.watch(paths.source.fonts + "*", gulp.series("optimizeFonts"));
+
 
 	// Once the CSS file is build, minify it.
 	gulp.watch(paths.destination.css + "master.css", gulp.series("cssmin"));
@@ -121,7 +123,7 @@ gulp.task("optimizeImages", function() {
 });
 
 gulp.task("optimizeFonts", function() {
-	gulp
+	return gulp
 	.src(paths.source.fonts + "*")
 	.pipe(gulp.dest(paths.destination.fonts));
 });
@@ -152,7 +154,8 @@ gulp.task("default",
 		gulp.parallel("minifyScripts",
 			"cssmin",
 			"optimizeImages",
-			"updateAssets"),
+			"updateAssets",
+			"optimizeFonts"),
 		"watch"
 	)
 );

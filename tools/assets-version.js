@@ -42,5 +42,8 @@ fs.readFile(someFile, 'utf8', function (err,data) {
 		if (err) return console.log(err);
 	});
 
-	console.log("Assets version has been updated!");
+	console.log("--------------------------------------------------------------")
+	console.log("Assets version has been updated: \x1b[33m%s\x1b[0m", time + '-' + currentVersion);
+	console.log("To update them again, make sure to run \x1b[33mgulp\x1b[0m again.");
+	console.log("--------------------------------------------------------------\n")
 });

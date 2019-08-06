@@ -1,6 +1,6 @@
 {
   "name": "dxstarter",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Quick settings for developing themes.",
   "main": "Gulpfile.js",
   "repository": "https://github.com/DevriX/DX-Starter",
@@ -28,16 +28,13 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "moment": "^2.24.0",
-    "replace-in-file": "^4.1.0",
-    "sass-lint": "^1.13.1",
-    "gulp-filter": "^5.1.0"
+    "sass-lint": "^1.13.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "./node_modules/.bin/gulp",
-    "ziptheme": "bash zip.sh",
-    "ver": "node assets-version.js",
-    "hello": "echo \"Hello\" ",
+    "ziptheme": "bash tools/zip.sh",
+    "ver": "node tools/assets-version.js",
     "projectConf": "sudo npm i -g gulp-cli gulp && echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
   },
   "author": "DevriX",
