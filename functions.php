@@ -39,6 +39,13 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require get_template_directory() . '/inc/images.php';
 
+/**
+ * Helper function for setting new asset version, 
+ * when a change in one of those ( scripts , css) is made
+ * 
+*/
+require 'set-assets-version.php';
+
 
 if ( ! function_exists( 'dxstarter_setup' ) ) :
 /**
@@ -118,6 +125,10 @@ function dxstarter_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+    
+    // Check and set a new version if anything has changed from last time...
+    dxset_assets_version();
+
 }
 endif;
 add_action( 'after_setup_theme', 'dxstarter_setup' );
@@ -158,6 +169,7 @@ add_action( 'widgets_init', 'dxstarter_widgets_init' );
 function dxstarter_scripts() {
 
 	$suffix = '.min';
+
 	if ( defined('SCRIPT_DEBUG' ) ) {
 		// Nest the if to avoid potential errors
 		if ( true === SCRIPT_DEBUG) {
@@ -165,7 +177,7 @@ function dxstarter_scripts() {
 		}
 	}
 
-	// Enqueue the only styling file here that is build with Gulp
+    // Enqueue the only styling file here that is build with Gulp
 	wp_enqueue_style( 'stylesheet', get_template_directory_uri() . '/assets/dist/css/master' . $suffix . '.css', array(), DX_ASSETS_VERSION );
 
 	// Sometimes you need to add a few quick changes without using Gulp/Sass, right? :)

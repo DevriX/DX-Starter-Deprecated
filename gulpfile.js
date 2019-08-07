@@ -132,11 +132,6 @@ gulp.task("cleanup", function() {
 	del(paths.destination.css + "*.css");
 });
 
-// This will take care of rights permission errors if any
-gulp.task("updateAssets", done => {
-	return cp.spawn("npm run ver", { stdio: "inherit", shell: true });
-});
-
 // Will delete .git files so that you can use it on your own repository
 gulp.task("reset", function() {
 	del(".git");
@@ -151,8 +146,7 @@ gulp.task("default",
 	gulp.series("sass",
 		gulp.parallel("minifyScripts",
 			"cssmin",
-			"optimizeImages",
-			"updateAssets"),
+			"optimizeImages"),
 		"watch"
 	)
 );
