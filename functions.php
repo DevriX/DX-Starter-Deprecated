@@ -16,10 +16,10 @@ function dx_get_assets_version( $dir ) {
     	}
     }
 
-    return $assets_m_time;
+    return max( $assets_m_time );
 }
 
-define( 'DX_ASSETS_VERSION', max( dx_get_assets_version( get_template_directory() . '/assets/dist/' ) ) );
+define( 'DX_ASSETS_VERSION', dx_get_assets_version( get_template_directory() . '/assets/dist/' ) );
 
 /**
  * Implement the Custom Header feature.
