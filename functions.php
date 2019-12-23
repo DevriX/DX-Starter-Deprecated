@@ -6,17 +6,23 @@
  *
  * @package DevriX_Starter
  */
-function dx_get_assets_version( $dir ) {	
-	$rii = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $dir ) );
-    $files = array();
-    $assets_m_time = array(); 
-    foreach ($rii as $file) {
-    	if ( ! $file->isDir() ) {
-    		array_push( $assets_m_time, date( "YmdHi", filemtime( $file->getPathname() ) ) );
-    	}
-    }
 
-    return max( $assets_m_time );
+/*
+ * Recursive auto version bump function.
+ * Loops through all assets in the supplied folder and returns the 
+ * latest date of modification.
+*/
+function dx_get_assets_version( $dir ) {	
+	$riterator = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $dir ) );
+	$files = array();
+	$assets_modification_time = array(); 
+	foreach ($riterator as $file) {
+		if ( ! $file->isDir() ) {
+			array_push( $assets_modification_time, date( "YmdHi", filemtime( $file->getPathname() ) ) );
+		}
+	}
+
+	return max( $assets_modification_time );
 }
 
 define( 'DX_ASSETS_VERSION', dx_get_assets_version( get_template_directory() . '/assets/dist/' ) );
