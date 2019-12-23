@@ -7,8 +7,6 @@
  * @package DevriX_Starter
  */
 
-require get_template_directory() . '/inc/theme-version.php';
-
 /**
  * Implement the Custom Header feature.
  */
@@ -166,15 +164,15 @@ function dxstarter_scripts() {
 	}
 
 	// Enqueue the only styling file here that is build with Gulp
-	wp_enqueue_style( 'stylesheet', get_template_directory_uri() . '/assets/dist/css/master' . $suffix . '.css', array(), DX_ASSETS_VERSION );
+	dx_enqueue_asset( 'style', 'stylesheet', get_template_directory_uri() . '/assets/dist/css/master' . $suffix . '.css' );
 
 	// Sometimes you need to add a few quick changes without using Gulp/Sass, right? :)
 	if ( true === WP_DEBUG ) {
-	    wp_enqueue_style( 'temp', get_template_directory_uri() . '/assets/dist/css/bozo-devs' . $suffix . '.css', array(), DX_ASSETS_VERSION );
+	    dx_enqueue_asset( 'style', 'temp', get_template_directory_uri() . '/assets/dist/css/bozo-devs' . $suffix . '.css' );
 	}
 
-	// And the only JS file that is build with Gulp
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/dist/scripts/bundle' . $suffix . '.js', array( "jquery" ), DX_ASSETS_VERSION, true );
+	// And the only JS file that is built with Gulp
+	dx_enqueue_asset( 'script', 'scripts', get_template_directory_uri() . '/assets/dist/scripts/bundle' . $suffix . '.js', array( "jquery" ), true );
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -190,3 +188,37 @@ function dxstarter_remove_html_margin() {
 	remove_action( 'wp_head', '_admin_bar_bump_cb' );
 }
 add_action( 'get_header', 'dxstarter_remove_html_margin' );
+
+/**
+ * Enqueues both styles and scripts and automatically bumps to a new version
+ * if there were any edits on the assets 
+ */
+function dx_enqueue_asset( $type, $handle, $src, $deps = array() ) {
+	if( $type === 'style') {
+		// We need a proper media parameter, let's get and set it
+		if( func_num_args() < 4 ) {
+			$media = 'all';
+		} else {
+			$media = func_get_arg( 4 );
+			if( ! is_string( $media ) || $media === '' ) {
+				$media = 'all';
+			}
+		}
+
+		$ver =  date ("Ymd", filemtime( get_template_directory() . '/assets/src/sass' ) );
+		wp_enqueue_style( $handle, $src, $deps, $ver, $media ); 
+	} else if ( $type === 'script' ) {
+		// We need a proper in_footer parameter, let's get and set it
+		if( func_num_args() < 4 ) {
+			$in_footer = false;
+		} else {
+			$in_footer  = func_get_arg( 4 );
+			if( ! is_bool( $in_footer ) ) {
+				$in_footer = false;
+			}
+		}
+
+		$ver = date ("Ymd", filemtime( get_template_directory() . '/assets/src/scripts' ) );
+		wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer ); 
+	}
+}
