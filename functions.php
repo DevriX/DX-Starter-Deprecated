@@ -6,10 +6,20 @@
  *
  * @package DevriX_Starter
  */
+function dx_get_assets_version( $dir ) {	
+	$rii = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $dir ) );
+    $files = array();
+    $assets_m_time = array(); 
+    foreach ($rii as $file) {
+    	if ( ! $file->isDir() ) {
+    		array_push( $assets_m_time, date( "YmdHi", filemtime( $file->getPathname() ) ) );
+    	}
+    }
 
-// Dynamic grab master CSS mod time.
-$master_modified_time = filemtime( get_theme_file_path() . '/assets/dist/css/master.min.css' );
-define( 'DX_ASSETS_VERSION', $master_modified_time . '-0000' );
+    return $assets_m_time;
+}
+
+define( 'DX_ASSETS_VERSION', max( dx_get_assets_version( get_template_directory() . '/assets/dist/' ) ) );
 
 /**
  * Implement the Custom Header feature.
