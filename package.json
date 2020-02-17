@@ -35,7 +35,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "./node_modules/.bin/gulp",
-    "ziptheme": "bash zip.sh"
+    "ziptheme": "bash zip.sh",
+    "generate": "node ./generateTheme.js"
   },
   "author": "DevriX",
   "license": "ISC",
