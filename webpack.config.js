@@ -2,8 +2,9 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const glob = require("glob");
+const CopyPlugin = require("copy-webpack-plugin");
 
-const configStyles = {
+const configCSSImagesFonts = {
   name: "Styling",
   mode: "development",
   entry: {
@@ -11,6 +12,18 @@ const configStyles = {
   },
   module: {
     rules: [
+      {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "../fonts",
+            },
+          },
+        ],
+      },
       {
         test: /\.s[ac]ss$/i,
         use: [
@@ -40,9 +53,22 @@ const configStyles = {
     path: path.resolve(__dirname, "./assets/dist/css"),
   },
   plugins: [
+	// A very straightforward "move the fonts" one:
+    new CopyPlugin({
+      patterns: [
+        {
+		  from: "assets/src/fonts/**/*",
+		  to: "../fonts/[name].[ext]"
+        },
+      ],
+	}),
+	
+	// Output the minified sass file
     new MiniCssExtractPlugin({
       filename: "[name].min.css",
-    }),
+	}),
+	
+	// Images minification and move them to a folder
     new ImageminPlugin({
       externalImages: {
         context: "assets", // Important! This tells the plugin where to "base" the paths at
@@ -54,4 +80,4 @@ const configStyles = {
   ],
 };
 
-module.exports = [configStyles];
+module.exports = [configCSSImagesFonts];
