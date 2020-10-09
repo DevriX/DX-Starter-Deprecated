@@ -1,48 +1,36 @@
 {
-  "name": "dxstarter",
-  "version": "1.5.1",
-  "description": "Quick settings for developing themes.",
-  "main": "Gulpfile.js",
-  "repository": "https://github.com/DevriX/DX-Starter",
-  "sasslintConfig": ".sass-lint.yml",
-  "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "babel-preset-env": "^1.7.0",
-    "child_process": "^1.0.2",
-    "del": "^4.1.1",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.1.0",
-    "gulp-babel": "^8.0.0",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-livereload": "^4.0.1",
-    "gulp-newer": "^1.4.0",
-    "gulp-notify": "^3.2.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sass-lint": "^1.4.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
-    "moment": "^2.24.0",
-    "replace-in-file": "^4.1.0",
-    "sass-lint": "^1.13.1",
-    "gulp-filter": "^5.1.0"
-  },
+  "name": "dx-starter",
+  "version": "1.0.0",
+  "description": "A starter theme by DevriX",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "./node_modules/.bin/gulp",
-    "ziptheme": "bash zip.sh"
+    "start": "webpack --mode development",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "DevriX",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevriX/DX-Starter.git"
+  },
+  "author": "",
   "license": "ISC",
-  "keywords": [],
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
+  "bugs": {
+    "url": "https://github.com/DevriX/DX-Starter/issues"
+  },
+  "homepage": "https://github.com/DevriX/DX-Starter#readme",
+  "devDependencies": {
+    "copy-webpack-plugin": "^6.2.0",
+    "css-loader": "^4.3.0",
+    "sass": "^1.27.0",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.3.0",
+    "terser-webpack-plugin": "^4.2.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "imagemin-webpack-plugin": "^2.4.2",
+    "mini-css-extract-plugin": "^0.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4"
   }
 }
