@@ -4,8 +4,8 @@
   "description": "A starter theme by DevriX",
   "private": true,
   "scripts": {
-    "start": "webpack --mode development",
-    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,11 @@
   },
   "homepage": "https://github.com/DevriX/DX-Starter#readme",
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
+    "browser-sync": "^2.26.12",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "copy-webpack-plugin": "^6.2.0",
     "css-loader": "^4.3.0",
     "sass": "^1.27.0",
@@ -26,7 +31,8 @@
     "style-loader": "^1.3.0",
     "terser-webpack-plugin": "^4.2.3",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "imagemin-webpack-plugin": "^2.4.2",

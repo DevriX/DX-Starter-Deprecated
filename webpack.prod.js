@@ -2,11 +2,34 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const glob = require("glob");
-const CopyPlugin = require("copy-webpack-plugin");
+
+const configJS = {
+  name: "JavaScript",
+  mode: "production",
+  entry: "./assets/src/scripts/index.js",
+  module: {
+    rules: [
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+    ],
+  },
+  output: {
+    filename: "[name].min.js",
+    path: path.resolve(__dirname, "assets/dist/scripts/"),
+  },
+};
 
 const configCSSImagesFonts = {
   name: "Styling",
-  mode: "development",
+  mode: "production",
   entry: {
     master: "./assets/src/sass/master.scss",
   },
@@ -46,6 +69,18 @@ const configCSSImagesFonts = {
           },
         ],
       },
+      {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "../fonts",
+            },
+          },
+        ],
+      },
     ],
   },
   output: {
@@ -53,22 +88,12 @@ const configCSSImagesFonts = {
     path: path.resolve(__dirname, "./assets/dist/css"),
   },
   plugins: [
-	// A very straightforward "move the fonts" one:
-    new CopyPlugin({
-      patterns: [
-        {
-		  from: "assets/src/fonts/**/*",
-		  to: "../fonts/[name].[ext]"
-        },
-      ],
-	}),
-	
-	// Output the minified sass file
+    // Output the minified sass file
     new MiniCssExtractPlugin({
       filename: "[name].min.css",
-	}),
-	
-	// Images minification and move them to a folder
+    }),
+
+    // Images minification and move them to a folder
     new ImageminPlugin({
       externalImages: {
         context: "assets", // Important! This tells the plugin where to "base" the paths at
@@ -80,4 +105,4 @@ const configCSSImagesFonts = {
   ],
 };
 
-module.exports = [configCSSImagesFonts];
+module.exports = [configCSSImagesFonts, configJS];
