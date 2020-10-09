@@ -33,6 +33,9 @@ assets/css/*.map
 npm-debug.log
 bower_components/
 
+# The config file you need for a project
+webpack.local.js
+
 # MacOS files that nobody wants...
 *.DS_Store
 .AppleDouble

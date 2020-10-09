@@ -1,0 +1,5 @@
+module.exports = {
+  url: "local.example.com",
+  port: 3100,
+  proxy: "http://local.example.com/",
+};

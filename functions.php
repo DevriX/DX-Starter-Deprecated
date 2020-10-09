@@ -176,7 +176,7 @@ function dxstarter_scripts() {
 	}
 
 	// And the only JS file that is build with Gulp
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/dist/scripts/bundle' . $suffix . '.js', array( "jquery" ), DX_ASSETS_VERSION, true );
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/dist/scripts/main.min.js', array( "jquery" ), DX_ASSETS_VERSION, true );
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

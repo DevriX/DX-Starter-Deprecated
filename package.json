@@ -4,7 +4,7 @@
   "description": "A starter theme by DevriX",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "webpack --watch --config webpack.prod.js",
     "build": "webpack --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
