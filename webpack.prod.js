@@ -1,12 +1,15 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
+const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const glob = require("glob");
 
 const configJS = {
   name: "JavaScript",
-  mode: "production",
+  mode: "development",
   entry: "./assets/src/scripts/index.js",
+  target: "web",
+  watch: true,
   module: {
     rules: [
       {
@@ -25,11 +28,34 @@ const configJS = {
     filename: "[name].min.js",
     path: path.resolve(__dirname, "assets/dist/scripts/"),
   },
+  devtool: "source-map",
+  devServer: {
+    historyApiFallback: true,
+    port: 9000,
+    publicPath: "/",
+    proxy: {
+      "*": {
+        target: "local.dxstarter.com",
+        secure: false,
+      },
+      "/": {
+        target: "local.dxstarter.com",
+        secure: false,
+      },
+    },
+  },
+  plugins: [
+    new BrowserSyncPlugin({
+      proxy: "local.dxstarter.com",
+      files: ["**/*"],
+      reloadDelay: 0,
+    }),
+  ],
 };
 
 const configCSSImagesFonts = {
   name: "Styling",
-  mode: "production",
+  mode: "development",
   entry: {
     master: "./assets/src/sass/master.scss",
   },
@@ -70,7 +96,7 @@ const configCSSImagesFonts = {
         ],
       },
       {
-        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(ttf|eot|woff|woff2|svg)$/,
         use: [
           {
             loader: "file-loader",
@@ -92,17 +118,7 @@ const configCSSImagesFonts = {
     new MiniCssExtractPlugin({
       filename: "[name].min.css",
     }),
-
-    // Images minification and move them to a folder
-    new ImageminPlugin({
-      externalImages: {
-        context: "assets", // Important! This tells the plugin where to "base" the paths at
-        sources: glob.sync("assets/src/images/**/*"),
-        destination: "assets/dist/images",
-        fileName: "[name].[ext]", // (filePath) => filePath.replace('jpg', 'webp') is also possible
-      },
-    }),
   ],
 };
 
-module.exports = [configCSSImagesFonts, configJS];
+module.exports = [configJS, configCSSImagesFonts];

@@ -12,20 +12,26 @@
 @import "base/general";
 @import "base/helpers";
 
+// NPM modules:
+@import '~normalize.css';
+@import '~foundation-sites/scss/foundation';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+// FontAwesome settings and just what is needed
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import '~@fortawesome/fontawesome-free/scss/regular';
+
+// And add just the gird from Foundation for now.
+@include foundation-flex-grid;
+
 // Set max height for the responsive images.
 @import "base/responsive-images";
-
-// The Foundation framework
-// @import "foundation/foundation";
-
-// The Font-Awesome build files
-// @import "font-awesome/fontawesome";
 
 // Separating the largest parts of the site in specific files.
 @import "layout/general";
 @import "layout/header";
 
-// Any other module that can be reused multuple times.
+// Any other module that can be reused multiple times.
 @import "components/buttons";
 @import "components/sections";
 @import "components/elements";

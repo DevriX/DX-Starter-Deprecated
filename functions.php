@@ -158,22 +158,8 @@ add_action( 'widgets_init', 'dxstarter_widgets_init' );
  * Enqueue scripts and styles.
  */
 function dxstarter_scripts() {
-
-	$suffix = '.min';
-	if ( defined('SCRIPT_DEBUG' ) ) {
-		// Nest the if to avoid potential errors
-		if ( true === SCRIPT_DEBUG) {
-			$suffix = '';
-		}
-	}
-
 	// Enqueue the only styling file here that is build with Gulp
-	wp_enqueue_style( 'stylesheet', get_template_directory_uri() . '/assets/dist/css/master' . $suffix . '.css', array(), DX_ASSETS_VERSION );
-
-	// Sometimes you need to add a few quick changes without using Gulp/Sass, right? :)
-	if ( true === WP_DEBUG ) {
-	    wp_enqueue_style( 'temp', get_template_directory_uri() . '/assets/dist/css/bozo-devs' . $suffix . '.css', array(), DX_ASSETS_VERSION );
-	}
+	wp_enqueue_style( 'stylesheet', get_template_directory_uri() . '/assets/dist/css/master.min.css', array(), DX_ASSETS_VERSION );
 
 	// And the only JS file that is build with Gulp
 	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/dist/scripts/main.min.js', array( "jquery" ), DX_ASSETS_VERSION, true );

@@ -1,6 +1,6 @@
-jQuery( document ).ready( function ( $ ) {
-	'use strict';
-	/*
+jQuery(document).ready(function ($) {
+  "use strict";
+  /*
 	|--------------------------------------------------------------------------
 	| Developer mode
 	|--------------------------------------------------------------------------
@@ -10,12 +10,12 @@ jQuery( document ).ready( function ( $ ) {
 	| Id needed for development testing this variable should be used.
 	|
 	*/
-	const devMode = function() {
-		return true;
-	};
+  const devMode = function () {
+    return true;
+  };
 
-	// Disable console.log for production site.
-	if ( ! devMode() ) {
-		console.log = function() {};
-	}
+  // Disable console.log for production site.
+  if (!devMode()) {
+    console.log = function () {};
+  }
 });

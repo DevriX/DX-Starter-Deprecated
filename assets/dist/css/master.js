@@ -7,63 +7,11 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
-
-/***/ "./assets/src/sass/master.scss":
 /*!*************************************!*\
   !*** ./assets/src/sass/master.scss ***!
   \*************************************/
-/*! namespace exports */
-/*! exports [not provided] [no usage info] */
-/*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://dx-starter/./assets/src/sass/master.scss?");
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-/******/ 	// startup
-/******/ 	// Load entry module
-/******/ 	__webpack_require__("./assets/src/sass/master.scss");
-/******/ 	// This entry module used 'exports' so it can't be inlined
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements:  */
+eval("throw new Error(\"Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\\nError: Automatic publicPath is not supported in this browser\\n    at /Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/assets/src/sass/master.scss:231:34\\n    at /Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/assets/src/sass/master.scss:234:13\\n    at Object.<anonymous> (/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/assets/src/sass/master.scss:241:12)\\n    at Module._compile (/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/v8-compile-cache/v8-compile-cache.js:194:30)\\n    at evalModuleCode (/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/mini-css-extract-plugin/dist/utils.js:41:10)\\n    at childCompiler.runAsChild (/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/mini-css-extract-plugin/dist/loader.js:170:57)\\n    at compile (/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/webpack/lib/Compiler.js:496:11)\\n    at hooks.afterCompile.callAsync.err (/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/webpack/lib/Compiler.js:990:17)\\n    at Hook.eval [as callAsync] (eval at create (/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:6:1)\\n    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (/Users/alex/Sites/dx/dxstarter/wp-content/themes/dx-starter/node_modules/tapable/lib/Hook.js:18:14)\");\n\n//# sourceURL=webpack://dx-starter/./assets/src/sass/master.scss?");
 /******/ })()
 ;
