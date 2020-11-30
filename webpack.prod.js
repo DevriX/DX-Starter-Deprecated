@@ -1,8 +1,12 @@
+const webpack = require("webpack");
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const glob = require("glob");
+const ASSET_PATH = process.env.ASSET_PATH || "/";
+
+const config = require('./webpack.local.js');
 
 const configJS = {
   name: "JavaScript",
@@ -31,22 +35,22 @@ const configJS = {
   devtool: "source-map",
   devServer: {
     historyApiFallback: true,
-    port: 9000,
+    port: config.port,
     publicPath: "/",
     proxy: {
       "*": {
-        target: "local.dxstarter.com",
+        target: config.proxy,
         secure: false,
       },
       "/": {
-        target: "local.dxstarter.com",
+        target: config.proxy,
         secure: false,
       },
     },
   },
   plugins: [
     new BrowserSyncPlugin({
-      proxy: "local.dxstarter.com",
+      proxy: config.proxy,
       files: ["**/*"],
       reloadDelay: 0,
     }),
@@ -112,11 +116,16 @@ const configCSSImagesFonts = {
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "./assets/dist/css"),
+    publicPath: ASSET_PATH,
   },
   plugins: [
     // Output the minified sass file
     new MiniCssExtractPlugin({
       filename: "[name].min.css",
+    }),
+    // This makes it possible for us to safely use env vars on our code
+    new webpack.DefinePlugin({
+      "process.env.ASSET_PATH": JSON.stringify(ASSET_PATH),
     }),
   ],
 };
