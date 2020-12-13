@@ -55,7 +55,10 @@ gulp.task("sass", function() {
 	.pipe(sassLint.format())
 	.pipe(sassLint.failOnError())
 	.pipe(sass().on("error", sass.logError))
-	.pipe(autoprefixer())
+	.pipe(autoprefixer({
+		browsers: ['last 2 versions'],
+		cascade: false
+	}))
 	.pipe(sourcemaps.write('./'))
 	.pipe(gulp.dest(paths.destination.css))
 	.pipe(notify({
