@@ -1,6 +1,3 @@
-// Allowing to run foundation.js file
-meta.foundation-data-attribute-namespace { font-family: false; }
-
 // Importing basic HTML element stylings. See it like reset + small stylings
 @import "general-basic";
 
@@ -18,14 +15,10 @@ html {
 // Add margin-top to body tag when admin-bar is visible.
 body.admin-bar {
 	padding-top: 32px;
-	@media (max-width: 782px) { padding-top: 46px; }
-}
 
-body {
-	font-family: $font-sans;
-	font-size: $global-font-size;
-	line-height: 1.7;
-	background: white;
+	@media (max-width: 782px) {
+		padding-top: 46px;
+	}
 }
 
 p:first-child {
@@ -64,23 +57,22 @@ hr {
 	background: #f0f0f0;
 }
 
-// Required WordPress stylings
-img.alignright {
-	margin: 20px 0 20px 20px;
-}
-
-img.alignleft {
-	margin: 20px 20px 20px 0;
-}
-
-img.aligncenter {
-	margin: 20px auto;
-}
-
 img {
 	max-width: 100%;
 	height: auto;
-	margin-bottom: -8px; // Fixes weird spacing under images
+
+	// Required WordPress stylings
+	&.alignright {
+		margin: 1em 0 1em 1em;
+	}
+
+	&.alignleft {
+		margin: 1em 1em 1em 0;
+	}
+
+	&.aligncenter {
+		margin: 1em auto;
+	}
 }
 
 /**
@@ -88,8 +80,13 @@ img {
  * stylings to those must be applied, since the SASS watch
  * script is skipping classes that have no properties.
  */
-.sticky { display: block; }
-.bypostauthor { display: block; }
+.sticky {
+	display: block;
+}
+
+.bypostauthor {
+	display: block;
+}
 
 .alignleft {
 	float: left;

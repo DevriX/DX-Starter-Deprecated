@@ -44,5 +44,9 @@
     "presets": [
       "@babel/preset-env"
     ]
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "foundation-sites": "^6.6.3"
   }
 }

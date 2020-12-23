@@ -1,0 +1,21 @@
+.entry {
+	&-content {
+		// Some generic styles that we usually need for content:
+		ul {
+			list-style: disc;
+			margin-left: 1em;
+			padding-left: 1em;
+		}
+
+		ol {
+			list-style: decimal;
+			margin-left: 1em;
+			padding-left: 1em;
+		}
+
+		figure {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}
