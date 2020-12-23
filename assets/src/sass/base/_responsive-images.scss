@@ -10,9 +10,6 @@
 	display: inline-block;
 	position: relative;
 
-	// Will fix issue with image paddings.
-	margin-bottom: -8px;
-
 	// Styling that can be removed:
 	background: #f8f8f8;
 
@@ -56,9 +53,23 @@
 	}
 
 	// Add border-radius to the responsive images.
-	&.radius-3 { border-radius: 3px; }
-	&.radius-5 { border-radius: 5px; }
-	&.radius-10 { border-radius: 10px; }
-	&.radius-20 { border-radius: 20x; }
-	&.radius-circle { border-radius: 50%; }
+	&.radius-small {
+		border-radius: .25em;
+	}
+
+	&.radius-medium {
+		border-radius: .5em;
+	}
+
+	&.radius-normal {
+		border-radius: 1em;
+	}
+
+	&.radius-large {
+		border-radius: 1.5em;
+	}
+
+	&.radius-circle {
+		border-radius: 50%;
+	}
 }

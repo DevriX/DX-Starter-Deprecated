@@ -1,14 +1,13 @@
 // Global settings
-$global-layout-gutter: 20px;
-$global-font-size: 16px;
-$global-width: 1200px;
-
+$global-font-size: 1em;
+$global-width: 80em;
+$grid-column-gutter : 2em;
 
 // Standart set media queries
-$breakpoint-mobile: 480px;
-$breakpoint-small: 	640px;
-$breakpoint-medium: 960px;
-$breakpoint-large: 	1200px;
+$breakpoint-mobile: 30em;
+$breakpoint-small: 	40em;
+$breakpoint-medium: 60em;
+$breakpoint-large: 	75em;
 
 
 // Layout

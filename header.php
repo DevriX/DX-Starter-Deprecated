@@ -48,13 +48,13 @@
 						endif; ?>
 					</div><!-- .site-branding -->
 
-					<?php if ( has_nav_menu( 'primary-menu' ) ) : ?>
+					<?php if ( has_nav_menu( 'primary' ) ) : ?>
 					<nav id="site-navigation" class="main-navigation">
 						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-							<i class="fa fa-reorder"></i>
+							<i class="fas fa-star"></i>
 						</button>
 						<div class="menu-primary-container">
-							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary' ) ); ?>
 						</div><!-- .menu-primary-container -->
 					</nav><!-- #site-navigation -->
 					<?php endif; ?>

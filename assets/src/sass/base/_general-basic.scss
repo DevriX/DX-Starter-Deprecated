@@ -9,10 +9,8 @@ button,
 input,
 select,
 textarea {
-	color: #404040;
-	font-family: sans-serif;
-	font-size: 16px;
-	font-size: 1rem;
+	font-family: $font-sans;
+	font-size: $global-font-size;
 	line-height: 1.5;
 }
 
@@ -61,8 +59,7 @@ kbd,
 tt,
 var {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	font-size: 15px;
-	font-size: 0.9375rem;
+	font-size: 1em;
 }
 
 abbr,
