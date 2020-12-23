@@ -11,7 +11,6 @@ let gulp = require("gulp"),
 	rename = require("gulp-rename"),
 	imagemin = require("gulp-imagemin"),
 	del = require("del"),
-	moment = require("moment"),
 	sassLint = require("gulp-sass-lint"),
 	newer = require("gulp-newer"),
 	sourcemaps = require("gulp-sourcemaps"),
@@ -76,7 +75,6 @@ gulp.task("sass", function () {
 				notify({
 					onLast: true,
 					title: "Sass compiled successfully.",
-					message: getFormatDate(),
 				})
 			)
 	);
@@ -174,8 +172,3 @@ gulp.task(
 		"watch"
 	)
 );
-
-// Print the current date formatted. Used for the script compile notify messages.
-function getFormatDate() {
-	return moment().format("LTS");
-}
