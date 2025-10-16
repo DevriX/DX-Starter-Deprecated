@@ -7,9 +7,25 @@
  * @package DevriX_Starter
  */
 
-// Dynamic grab master CSS mod time.
-$master_modified_time = filemtime( get_theme_file_path() . '/assets/dist/css/master.min.css' );
-define( 'DX_ASSETS_VERSION', $master_modified_time . '-0000' );
+/*
+ * Recursive auto version bump function.
+ * Loops through all assets in the supplied folder and returns the 
+ * latest date of modification.
+*/
+function dx_get_assets_version( $dir ) {	
+	$riterator = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $dir ) );
+	$files = array();
+	$assets_modification_time = array(); 
+	foreach ($riterator as $file) {
+		if ( ! $file->isDir() ) {
+			array_push( $assets_modification_time, date( "YmdHi", filemtime( $file->getPathname() ) ) );
+		}
+	}
+
+	return max( $assets_modification_time );
+}
+
+define( 'DX_ASSETS_VERSION', dx_get_assets_version( get_template_directory() . '/assets/dist/' ) );
 
 /**
  * Implement the Custom Header feature.
